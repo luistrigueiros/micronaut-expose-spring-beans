@@ -1,13 +1,14 @@
 plugins {
-    // Apply the java-library plugin to add support for Java Library
-    `java-library`
-    // Apply the groovy plugin to also add support for Groovy (needed for Spock)
-    groovy
+    id("net.ltgt.apt") version "0.15"
+    id("net.ltgt.apt-idea") version "0.15"
 }
 
-val micronautVersion = "1.0.0.M1"
-val spockVersion = "1.0-groovy-2.4"
-val springVersion = "5.0.6.RELEASE"
+apply plugin:'java'
+apply plugin:'groovy'
+
+ext.micronautVersion = "1.0.0.M1"
+ext.spockVersion = "1.0-groovy-2.4"
+ext.springVersion = "5.0.6.RELEASE"
 
 dependencies {
     annotationProcessor("io.micronaut:inject-java:$micronautVersion")
@@ -18,7 +19,7 @@ dependencies {
     implementation("org.springframework:spring-context:$springVersion")
     implementation("io.micronaut:runtime:$micronautVersion")
     implementation("io.micronaut:spring:$micronautVersion") {
-        exclude(group = "org.springframework")
+        exclude(group:"org.springframework")
     }
     //implementation("org.springframework.boot:spring-boot-starter")
     // Use the latest Groovy version for Spock testing
@@ -26,7 +27,7 @@ dependencies {
     // Use the awesome Spock testing and specification framework even with Java
     testImplementation("org.spockframework:spock-core:$spockVersion")
     testImplementation("org.spockframework:spock-spring:$spockVersion") {
-        exclude(group = "org.springframework")
+        exclude(group:"org.springframework")
     }
     testImplementation("org.springframework:spring-test:$springVersion")
 }
@@ -37,3 +38,6 @@ repositories {
         setUrl("https://jcenter.bintray.com")
     }
 }
+
+compileJava.options.compilerArgs += "-parameters"
+compileTestJava.options.compilerArgs += "-parameters"
