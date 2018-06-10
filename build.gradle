@@ -18,17 +18,13 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("org.springframework:spring-context:$springVersion")
     implementation("io.micronaut:runtime:$micronautVersion")
-    implementation("io.micronaut:spring:$micronautVersion") {
-        exclude(group:"org.springframework")
-    }
+    implementation("io.micronaut:spring:$micronautVersion")
     //implementation("org.springframework.boot:spring-boot-starter")
     // Use the latest Groovy version for Spock testing
-    testImplementation("org.codehaus.groovy:groovy-all:2.4.14")
+    testImplementation("org.codehaus.groovy:groovy-all:2.5.0")
     // Use the awesome Spock testing and specification framework even with Java
     testImplementation("org.spockframework:spock-core:$spockVersion")
-    testImplementation("org.spockframework:spock-spring:$spockVersion") {
-        exclude(group:"org.springframework")
-    }
+    testImplementation("org.spockframework:spock-spring:$spockVersion")
     testImplementation("org.springframework:spring-test:$springVersion")
 }
 
