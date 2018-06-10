@@ -16,6 +16,7 @@ dependencies {
     //api("org.apache.commons:commons-math3:3.6.1")
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("org.springframework:spring-context:$springVersion")
+    implementation("io.micronaut:runtime:$micronautVersion")
     implementation("io.micronaut:spring:$micronautVersion") {
         exclude(group = "org.springframework")
     }
