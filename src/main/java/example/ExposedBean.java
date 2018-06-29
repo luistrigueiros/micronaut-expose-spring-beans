@@ -1,10 +1,11 @@
 package example;
 
-import io.micronaut.context.annotation.Prototype;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Prototype
+import javax.inject.Singleton;
+
+@Singleton
 public class ExposedBean {
 
     private static final Logger logger = LoggerFactory.getLogger(ExposedBean.class);
