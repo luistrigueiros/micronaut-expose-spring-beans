@@ -6,7 +6,7 @@ plugins {
 apply plugin:'java'
 apply plugin:'groovy'
 
-ext.micronautVersion = "1.0.0.M1"
+ext.micronautVersion = "1.0.0.M4"
 ext.spockVersion = "1.0-groovy-2.4"
 ext.springVersion = "5.0.6.RELEASE"
 

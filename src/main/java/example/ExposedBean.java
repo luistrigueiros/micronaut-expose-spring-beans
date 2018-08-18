@@ -4,6 +4,8 @@ import io.micronaut.context.annotation.Prototype;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Singleton;
+
 @Prototype
 public class ExposedBean {
 
