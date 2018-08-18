@@ -1,6 +1,5 @@
 package example;
 
-import io.micronaut.context.annotation.Prototype;
 import io.micronaut.spring.beans.MicronautBeanProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,6 +12,7 @@ import javax.inject.Singleton;
 public class Config {
     @Bean
     public MicronautBeanProcessor micronautBeanProcessor() {
-        return new MicronautBeanProcessor(Prototype.class, Singleton.class);
+        //Micronaut.run(ExposedBean.class);
+        return new MicronautBeanProcessor(Singleton.class);
     }
 }
